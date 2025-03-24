@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {ParkingDataService} from './services/parking-data/parking-data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,10 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'tristar-parking-gdansk';
+
+  constructor(private parkingDataService: ParkingDataService) {}
+
+  downloadFile() {
+    this.parkingDataService.downloadParkingData();
+  }
 }

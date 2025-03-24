@@ -1,0 +1,159 @@
+{
+  "lastUpdate": "2025-03-24T03:00:02Z",
+  "parkingLots": [
+    {
+      "id": "1",
+      "name": "Galeria Bałtycka",
+      "shortName": "P01",
+      "address": "ul.Dmowskiego",
+      "streetEntrance": "ul.Dmowskiego ",
+      "location": {
+        "latitude": 54.38268,
+        "longitude": 18.60024
+      }
+    },
+    {
+      "id": "2",
+      "name": "C.H. Manhattan",
+      "shortName": "P02",
+      "address": "ul.Partyzantów",
+      "streetEntrance": "ul.Partyzantów",
+      "location": {
+        "latitude": 50.37742,
+        "longitude": 10.6075
+      }
+    },
+    {
+      "id": "3",
+      "name": "PGE Arena",
+      "shortName": "P03",
+      "address": "ul. Żaglowa",
+      "streetEntrance": "ul. Żaglowa",
+      "location": {
+        "latitude": 54.38828,
+        "longitude": 18.63675
+      }
+    },
+    {
+      "id": "4",
+      "name": "AmberExpo",
+      "shortName": "P04",
+      "address": "ul. Żaglowa",
+      "streetEntrance": "ul. Żaglowa",
+      "location": {
+        "latitude": 54.38555,
+        "longitude": 18.6367
+      }
+    },
+    {
+      "id": "5",
+      "name": "C.H. Madison",
+      "shortName": "P05",
+      "address": "ul.Gnilna",
+      "streetEntrance": "ul.Gnilna",
+      "location": {
+        "latitude": 54.35638,
+        "longitude": 18.64905
+      }
+    },
+    {
+      "id": "7",
+      "name": "Akademia Muzyczna",
+      "shortName": "P09",
+      "address": "ul.Łąkowa",
+      "streetEntrance": "ul.Łąkowa",
+      "location": {
+        "latitude": 50.34616,
+        "longitude": 10.66251
+      }
+    },
+    {
+      "id": "14",
+      "name": "Europejskie Centrum Solidarności",
+      "shortName": "P16",
+      "address": "Plac Solidarności",
+      "streetEntrance": "Nowomiejska",
+      "location": {
+        "latitude": 54.360784,
+        "longitude": 18.649211
+      }
+    },
+    {
+      "id": "15",
+      "name": "CH Metropolia",
+      "shortName": "P08",
+      "address": "Kilińskiego 4",
+      "streetEntrance": "Kilińskiego",
+      "location": {
+        "latitude": 54.383618,
+        "longitude": 18.603088
+      }
+    },
+    {
+      "id": "17",
+      "name": "Forum Gdańsk",
+      "shortName": "P10",
+      "address": "Targ Sienny 7, 80-806 Gdańsk",
+      "streetEntrance": "3 Maja",
+      "location": {
+        "latitude": 54.34941,
+        "longitude": 18.64233
+      }
+    },
+    {
+      "id": "18",
+      "name": "Parking Błękitna",
+      "shortName": "P17",
+      "address": "Błękitna",
+      "streetEntrance": "Jelitkowska",
+      "location": {
+        "latitude": 54.425675,
+        "longitude": 18.593306
+      }
+    },
+    {
+      "id": "19",
+      "name": "Parking Kapliczna",
+      "shortName": "P18",
+      "address": "Kapliczna",
+      "streetEntrance": "Kapliczna",
+      "location": {
+        "latitude": 54.422806,
+        "longitude": 18.599366
+      }
+    },
+    {
+      "id": "20",
+      "name": "Parking Kaczyńskiego",
+      "shortName": "P19",
+      "address": "Kaczyńskiego",
+      "streetEntrance": "Kaczyńskiego",
+      "location": {
+        "latitude": 54.4129,
+        "longitude": 18.602567
+      }
+    },
+    {
+      "id": "21",
+      "name": "Parking Czarny Dwór",
+      "shortName": "P20",
+      "address": "Czarny Dwór",
+      "streetEntrance": "Czarny Dwór",
+      "location": {
+        "latitude": 54.407438,
+        "longitude": 18.615678
+      }
+    },
+    {
+      "id": "22",
+      "name": "Parking Świętokrzyska",
+      "shortName": "P22",
+      "address": "ul. Świętokrzyska",
+      "streetEntrance": "Świętokrzyska",
+      "location": {
+        "latitude": 54.323,
+        "longitude": 18.6058
+      }
+    }
+  ]
+}
