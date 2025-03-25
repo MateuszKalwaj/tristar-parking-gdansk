@@ -1,7 +1,7 @@
 @for (parking of parkingData; track parking.id) {
-  <div>
+  <div class="p-3.5  columns-2">
     <h3>{{ parking.name }}</h3>
-    <p>Adres: {{ parking.address }}</p>
+    <p> Adres: {{ parking.address }}</p>
     <p>Wolne miejsca: {{ parking.availableSpots }}</p>
   </div>
 } @empty {
