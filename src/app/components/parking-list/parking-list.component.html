@@ -1,0 +1,10 @@
+@for (parking of parkingData; track parking.id) {
+  <div>
+    <h3>{{ parking.name }}</h3>
+    <p>Adres: {{ parking.address }}</p>
+    <p>Wolne miejsca: {{ parking.availableSpots }}</p>
+  </div>
+} @empty {
+  <p>Tu niedostępny parking, wrócę tak szybko jak to możliwe!.</p>
+<!--  TODO nie może się tak wyświetlać jak teraz-->
+}
