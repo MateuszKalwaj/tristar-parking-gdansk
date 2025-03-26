@@ -1,10 +1,14 @@
-@for (parking of parkingData; track parking.id) {
-  <div class="p-3.5  columns-2">
-    <h3>{{ parking.name }}</h3>
-    <p> Adres: {{ parking.address }}</p>
-    <p>Wolne miejsca: {{ parking.availableSpots }}</p>
-  </div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+  @for (parking of parkingData; track parking.id) {
+    <div class="shadow-lg rounded-xl p-5 border border-gray-200"
+         [class.bg-red-200]="parking.availableSpots === 0"
+         [class.bg-green-200]="parking.availableSpots > 0"
+         [class.text-white]="parking.availableSpots === 0">
+      <h3 class="text-lg font-semibold text-gray-900">{{ parking.name }}</h3>
+      <p class="text-gray-700">Adres: {{ parking.address }}</p>
+      <p class="text-gray-700">Wolne miejsca: {{ parking.availableSpots }}</p>
+    </div>
 } @empty {
-  <p>Tu niedostępny parking, wrócę tak szybko jak to możliwe!.</p>
-<!--  TODO nie może się tak wyświetlać jak teraz-->
-}
+    <p class="col-span-2 text-center text-gray-600">Tu niedostępny parking, wrócę tak szybko jak to możliwe!.</p>
+  }
+</div>
