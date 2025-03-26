@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ParkingDataService} from '../../services/parking-data/parking-data.service';
+import mapboxgl from 'mapbox-gl'
 
 @Component({
   selector: 'app-parking-list',
@@ -9,6 +10,8 @@ import {ParkingDataService} from '../../services/parking-data/parking-data.servi
 })
 export class ParkingListComponent implements OnInit {
   parkingData: any[] = [];
+  selectedMapParking: any = null;
+  isMapModalOpen = false;
 
 
   constructor(private parkingDataService: ParkingDataService) {
@@ -27,5 +30,28 @@ export class ParkingListComponent implements OnInit {
     return parkingData.sort((a, b) => {
       return (b.availableSpots > 0 ? 1 : 0) - (a.availableSpots > 0 ? 1 : 0);
     });
+  }
+
+  openMapModal(parking: any) {
+    this.selectedMapParking = parking;
+    this.isMapModalOpen = true;
+
+    setTimeout(() => {
+      mapboxgl.accessToken = 'pk.eyJ1IjoidHlub3pvYmFjeiIsImEiOiJjbGV5ZnVyODAwMWg3M3lxbm5lNmZkdGVpIn0.vcTM1k807jLbIK8kHRnHIA';
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [parking.location.longitude, parking.location.latitude],
+        zoom: 14
+      });
+
+      new mapboxgl.Marker()
+        .setLngLat([parking.location.longitude, parking.location.latitude])
+        .addTo(map);
+    }, 100);
+  }
+
+  closeModal() {
+    this.isMapModalOpen = false;
   }
 }
