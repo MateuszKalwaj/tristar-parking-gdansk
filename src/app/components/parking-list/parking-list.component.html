@@ -18,7 +18,7 @@
 
 @if (isMapModalOpen) {
   <div class="fixed inset-0 glass flex items-center justify-center" (click)="isMapModalOpen = false">
-    <div class="bg-amber-100 p-4 rounded-lg shadow-lg relative w-3/4 max-w-3/4 cursor-pointer" (click)="$event.stopPropagation()">
+    <div class="glass-map bg-gradient-to-r from-amber-500 to-amber-400 py-6 p-4 rounded-lg shadow-lg relative w-3/4 max-w-3/4 cursor-pointer mt-10" (click)="$event.stopPropagation()">
       <button class="absolute top-2 right-2 text-3xl pb-3.5 pr-2 cursor-pointer z-10" (click)="closeModal()">×</button>
       <h2 class="text-center text-3xl font-bold italic pb-2.5">{{ selectedMapParking?.name }}</h2>
       <div id="map" class="w-full h-150 flex items-center justify-center"></div>
