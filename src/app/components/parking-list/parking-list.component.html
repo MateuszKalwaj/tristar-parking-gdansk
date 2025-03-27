@@ -1,25 +1,46 @@
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-  @for (parking of parkingData; track parking.id) {
-    <div class="shadow-lg rounded-xl p-5 border border-gray-200"
-         [class.bg-red-200]="parking.availableSpots === 0"
-         [class.bg-green-200]="parking.availableSpots > 0"
-         [class.text-white]="parking.availableSpots === 0"
-    (click)="openMapModal(parking)">
-      <h3 class="text-lg font-semibold text-gray-900">{{ parking.name }}</h3>
-      <p class="text-gray-700">Adres: {{ parking.address }}</p>
-      <p class="text-gray-700">Wolne miejsca: {{ parking.availableSpots }}</p>
-    </div>
-} @empty {
-    <p class="col-span-2 text-center text-gray-600">Tu niedostępny parking, wrócę tak szybko jak to możliwe!.</p>
-  }
+<div class="px-[12.5%] md:px-[25%]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+    @for (parking of parkingData; track parking.id) {
+      <div class="shadow-lg rounded-b-lg p-3 border border-gray-200"
+           [class.bg-red-200]="parking.availableSpots === 0"
+           [class.bg-green-200]="parking.availableSpots > 0"
+           [class.text-white]="parking.availableSpots === 0"
+           (click)="openMapModal(parking)">
+        <h3 class="text-lg font-semibold text-gray-900">{{ parking.name }}</h3>
+        <p class="text-gray-700">Adres: {{ parking.address }}</p>
+        <p class="text-gray-700 pt-1">Wolne miejsca:</p><p class="font-bold animate-bounce">{{ parking.availableSpots }}</p>
+      </div>
+    } @empty {
+      <p class="col-span-2 text-center text-gray-600">Tu niedostępny parking, wrócę tak szybko jak to możliwe!.</p>
+    }
+  </div>
 </div>
 
 @if (isMapModalOpen) {
-  <div class="fixed inset-0 bg-amber-50  flex items-center justify-center">
-    <div class="bg-amber-100 p-4 rounded-lg shadow-lg relative w-4/5 max-w-3/4">
-      <button class="absolute top-2 right-2 text-3xl" (click)="closeModal()">×</button>
-      <h2 class="text-lg font-bold">{{ selectedMapParking?.name }}</h2>
-      <div id="map" class="w-full h-96"></div>
+  <div class="fixed inset-0 glass flex items-center justify-center" (click)="isMapModalOpen = false">
+    <div class="bg-amber-100 p-4 rounded-lg shadow-lg relative w-3/4 max-w-3/4 cursor-pointer" (click)="$event.stopPropagation()">
+      <button class="absolute top-2 right-2 text-3xl pb-3.5 pr-2 cursor-pointer z-10" (click)="closeModal()">×</button>
+      <h2 class="text-center text-3xl font-bold italic pb-2.5">{{ selectedMapParking?.name }}</h2>
+      <div id="map" class="w-full h-150 flex items-center justify-center"></div>
+      <h1 class="text-indigo-950 pt-4 italic text-center">Adres parkingu udostępniony przez Urząd Miasta Gdańsk: {{selectedMapParking?.address}}</h1>
     </div>
   </div>
 }
+
+
+<!--@if (isMapModalOpen) {-->
+<!--  <dialog-->
+<!--    class="bg-amber-100 p-4 rounded-lg shadow-lg w-4/5 max-w-3/4 dialog inset-0 fixed"-->
+<!--    [open]="isMapModalOpen"-->
+<!--    (close)="closeModal()"-->
+<!--  >-->
+<!--    <div class="relative">-->
+<!--      <button-->
+<!--        class="absolute top-2 right-2 text-3xl p-3"-->
+<!--        (click)="closeModal()"-->
+<!--      >×</button>-->
+<!--      <h2 class="text-lg font-bold">{{ selectedMapParking?.name }}</h2>-->
+<!--      <div id="map" class="max-w-3/4 h-150 items-center justify-center"></div>-->
+<!--    </div>-->
+<!--  </dialog>-->
+<!--}-->
