@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ParkingDataService} from '../../services/parking-data/parking-data.service';
-import mapboxgl from 'mapbox-gl'
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 @Component({
   selector: 'app-parking-list',
@@ -37,7 +38,7 @@ export class ParkingListComponent implements OnInit {
     this.isMapModalOpen = true;
 
     setTimeout(() => {
-      mapboxgl.accessToken = 'pk.eyJ1IjoidHlub3pvYmFjeiIsImEiOiJjbGV5ZnVyODAwMWg3M3lxbm5lNmZkdGVpIn0.vcTM1k807jLbIK8kHRnHIA';
+      mapboxgl.accessToken = 'TOKEN';
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
