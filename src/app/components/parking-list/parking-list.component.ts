@@ -38,7 +38,7 @@ export class ParkingListComponent implements OnInit {
     this.isMapModalOpen = true;
 
     setTimeout(() => {
-      mapboxgl.accessToken = 'TOKEN';
+      const token = mapboxgl.accessToken = '';
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
