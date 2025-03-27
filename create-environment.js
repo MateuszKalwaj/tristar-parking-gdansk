@@ -4,12 +4,12 @@ const path = require('path');
 // Create environment files dynamically
 const environmentProd = {
   production: true,
-  mapboxAccessToken: process.env.MAPBOX_ACCESS_TOKEN
+  mapBoxAccessToken: process.env.MAPBOX_ACCESS_TOKEN
 };
 
 const environmentDev = {
   production: false,
-  mapboxAccessToken: process.env.MAPBOX_ACCESS_TOKEN
+  mapBoxAccessToken: process.env.MAPBOX_ACCESS_TOKEN
 };
 
 // Ensure environments directory exists
