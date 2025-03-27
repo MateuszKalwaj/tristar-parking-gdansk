@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ParkingDataService} from '../../services/parking-data/parking-data.service';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import {environment} from '../../../environments/environment';
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-parking-list',
