@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "netlify:build": "node create-environment.js && ng build --configuration production",
+    "netlify:build": "ng build --configuration production",
     "netlify:serve": "netlify dev",
     "serve:ssr:tristar-parking-gdansk": "node dist/tristar-parking-gdansk/server/server.mjs"
   },
