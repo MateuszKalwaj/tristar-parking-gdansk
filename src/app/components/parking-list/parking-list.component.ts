@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ParkingDataService} from '../../services/parking-data/parking-data.service';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-parking-list',
@@ -38,12 +39,13 @@ export class ParkingListComponent implements OnInit {
     this.isMapModalOpen = true;
 
     setTimeout(() => {
-      const token = mapboxgl.accessToken = '';
+       mapboxgl.accessToken = environment.apiKey;
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [parking.location.longitude, parking.location.latitude],
-        zoom: 14
+        zoom: 14,
+        attributionControl: false
       });
 
       new mapboxgl.Marker()
