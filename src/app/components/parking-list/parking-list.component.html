@@ -1,13 +1,13 @@
 <div class="px-[12.5%] md:px-[25%] bg-linear-65 from-gray-100 via-white-100 to-gray-100">
-  <div class="grid grid-cols-1  md:grid-cols-3 gap-4 p-4">
+  <div class="grid md:grid-cols-4 gap-4 p-4">
     @for (parking of parkingData; track parking.id) {
-      <div class="shadow-lg rounded-b-lg p-3 border-2 border-gray-200 bo"
+      <div class="shadow-lg rounded-b-lg p-3 border-2 border-gray-200"
            [class.border-red-200]="parking.availableSpots === 0"
            [class.border-green-500]="parking.availableSpots > 0"
            (click)="openMapModal(parking)">
-        <h3 class="text-lg font-semibold text-gray-900 ">{{ parking.name }}</h3>
+        <p class="text-lg font-semibold text-gray-900 ">{{ parking.name }}</p>
         <p class="text-gray-700">Adres: {{ parking.address }}</p>
-        <p class="text-gray-700 pt-1 ">Wolne miejsca: {{ parking.availableSpots }} </p>
+        <p class="text-gray-700 pt-1 ">Wolne miejsca: <span class="font-bold">{{ parking.availableSpots }}</span> </p>
       </div>
     } @empty {
       <p class="col-span-2 text-center text-gray-600">Tu niedostępny parking, wrócę tak szybko jak to możliwe!.</p>
