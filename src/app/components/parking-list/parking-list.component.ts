@@ -11,6 +11,8 @@ import {environment} from '../../../environments/environment';
 })
 export class ParkingListComponent implements OnInit {
   parkingData: any[] = [];
+  availableParking: any[] = [];
+  unavailableParking: any[] = [];
   selectedMapParking: any = null;
   isMapModalOpen = false;
 
@@ -21,16 +23,18 @@ export class ParkingListComponent implements OnInit {
   ngOnInit(): void {
     this.parkingDataService.getParkingList().subscribe(parkingData => {
       this.parkingDataService.getParkingAvailability().subscribe(availabilityData => {
-        this.parkingData = this.sortParkingData(
-          this.parkingDataService.combineParkingData(parkingData, availabilityData));
+        const combinedData = this.parkingDataService.combineParkingData(parkingData, availabilityData);
+        this.parkingData = combinedData;
+        this.splitParkingData(combinedData);
       });
     });
   }
 
-  private sortParkingData(parkingData: any[]): any[] {
-    return parkingData.sort((a, b) => {
-      return (b.availableSpots > 0 ? 1 : 0) - (a.availableSpots > 0 ? 1 : 0);
-    });
+  private splitParkingData(parkingData: any[]): void {
+    this.availableParking = parkingData.filter(p => p.availableSpots > 0)
+      .sort((a, b) => b.availableSpots - a.availableSpots);
+    this.unavailableParking = parkingData.filter(p => p.availableSpots === 0)
+      .sort((a, b) => a.name.localeCompare(b.name));
   }
 
   openMapModal(parking: any) {
