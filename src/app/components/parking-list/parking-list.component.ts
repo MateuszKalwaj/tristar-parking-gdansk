@@ -43,16 +43,61 @@ export class ParkingListComponent implements OnInit {
 
     setTimeout(() => {
       mapboxgl.accessToken = environment.apiKey;
+      const parkingCoordinates: [number, number] = [
+        Number(parking.location.longitude),
+        Number(parking.location.latitude)
+      ];
+
+      const originalFetch = window.fetch;
+      window.fetch = function(url: RequestInfo | URL, options?: RequestInit) {
+        const urlString = url instanceof Request ? url.url : url.toString();
+        if (urlString.includes('events.mapbox.com')) {
+          return Promise.resolve(new Response());
+        }
+        return originalFetch(url, options);
+      };
+
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [parking.location.longitude, parking.location.latitude],
-        zoom: 14,
-        attributionControl: false
+        zoom: 15,
+        doubleClickZoom: false,
+        center: parkingCoordinates,
       });
+
+      map.addControl(new mapboxgl.NavigationControl());
+      map.scrollZoom.disable();
+
       new mapboxgl.Marker()
-        .setLngLat([parking.location.longitude, parking.location.latitude])
+        .setLngLat(parkingCoordinates)
         .addTo(map);
+      const mapContainer = document.getElementById('map');
+
+      if (mapContainer) {
+        mapContainer.addEventListener('wheel', (event) => {
+          event.preventDefault();
+          const zoomDirection = event.deltaY < 0 ? 1 : -1;
+          const zoomDelta = 0.2 * zoomDirection;
+          const currentZoom = map.getZoom();
+          const newZoom = currentZoom + zoomDelta * 5;
+          map.easeTo({
+            center: parkingCoordinates,
+            zoom: newZoom,
+            duration: 250
+          });
+        });
+
+        mapContainer.addEventListener('dblclick', (event) => {
+          event.preventDefault();
+          const currentZoom = map.getZoom();
+          const newZoom = currentZoom + 1;
+          map.easeTo({
+            center: parkingCoordinates,
+            zoom: newZoom,
+            duration: 250
+          });
+        });
+      }
     }, 100);
   }
 
